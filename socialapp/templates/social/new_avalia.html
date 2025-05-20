@@ -1,0 +1,20 @@
+{% extends 'social/base.html' %}
+
+{% block content %}
+    <form method="post"   enctype="multipart/form-data">
+    {% csrf_token %}
+{{form}}
+        <input type="submit" value="Salvar" class="btn btn-primary">
+    </form>
+
+    <div>
+    <h1> Avaliações</h1>
+
+        {% for ava in avas %}
+            <div>{{ ava.valor_avalia }}</div>
+        {% endfor %}
+    {{ avas }}
+    </div>
+
+
+{% endblock content %}

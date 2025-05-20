@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from socialapp.views import index, sobre, postar,contato,base
+from socialapp.views import index, sobre, postar,contato, new_avalia
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,5 @@ urlpatterns = [
     path('sobre/', sobre, name='sobre'),
     path('postar/', postar, name='postar'),
     path('contato/', contato, name='contato'),
-    path('base/', base, name='base'),
+    path('new_avalia/', new_avalia, name='new_avalia'),
 ]

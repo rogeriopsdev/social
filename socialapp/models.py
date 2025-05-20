@@ -59,4 +59,4 @@ class Perfil_post(models.Model):
     id_postagem = models.ForeignKey(Postagem, models.DO_NOTHING, db_column='id_postagem')
 
     def __str__(self):
-        return self.id_perfil
+        return str(self.id_perfil)
