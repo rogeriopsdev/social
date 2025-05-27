@@ -18,7 +18,7 @@ class Postagem(models.Model):
     data_postagem =models.DateTimeField()
     titulo_postagem= models.CharField(max_length=255)
     conteudo_postagem=models.TextField()
-    id_avalia = models.ForeignKey(Avalia, models.DO_NOTHING, db_column='id_avalia')
+    id_avalia = models.ForeignKey(Avalia, models.DO_NOTHING,null=True,blank=True, db_column='id_avalia')
 
     def __str__(self):
         return self.titulo_postagem

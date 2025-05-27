@@ -1,23 +1,16 @@
 {% extends 'social/base.html' %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-6">
-                {{ form}}
-            </div>
-            <div class="col-6">
-                 <input type="submit" value="Salvar" class="btn btn-primary">
-            </div>
-
-        </div>
-
+    <form method="post"   enctype="multipart/form-data">
+    {% csrf_token %}
+{{form}}
+        <input type="submit" value="Editar" class="btn btn-warning">
     </form>
 
     <div>
-        <h1>Avaliações</h1>
-        <table class="table">
+    <h1> Editar Avaliação</h1>
+
+      <table class="table">
         <th>
         <tr>
             <td>Id</td>
