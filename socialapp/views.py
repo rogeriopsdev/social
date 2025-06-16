@@ -51,3 +51,39 @@ def deleta_avalia(request,id):
         avaliado.delete()
         return redirect('new_avalia')
     return render(request,'social/deleta_avalia.html',{'avaliado':avaliado, 'form':form, 'avas':avas})
+# Postagem
+def new_post(request):
+    posts = Postagem.objects.all()
+    form = PostagemForms()
+    if request.method=='POST':
+        form =PostagemForms(request.POST, request.FILES)
+        if form.is_valid():
+            obj = form.save()
+            obj.save()
+            form= PostagemForms()
+    return render(request, 'social/new_post.html', {'form':form, 'posts':posts})
+
+def editar_post(request, id):
+    post =get_object_or_404(Postagem, pk=id)
+    form =PostagemForms(instance=post)
+    posts =Postagem.objects.all()
+
+    if(request.method =="POST"):
+        form = PostagemForms(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('new_post')
+        return render(request, 'social/editar_post.html', {'form': form, 'posts': posts, 'post':post})
+    else:
+        return render(request, 'social/editar_post.html', {'form': form, 'posts': posts, 'post':post})
+
+
+
+def deleta_post(request,id):
+    post = get_object_or_404(Postagem, pk=id)
+    form = PostagemForms(instance=post)
+    posts = Postagem.objects.all()
+    if request.method == "POST":
+        post.delete()
+        return redirect('new_post')
+    return render(request,'social/deleta_post.html',{'post':post, 'form':form, 'posts':posts})
