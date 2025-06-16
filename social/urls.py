@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from socialapp.views import index, sobre, postar,contato, new_avalia, editar_avalia, deleta_avalia
-from socialapp.views import new_post
+from socialapp.views import new_post, deleta_post, editar_post
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
@@ -29,4 +29,6 @@ urlpatterns = [
     path('deleta_avalia/<int:id>', deleta_avalia, name='deleta_avalia'),
     #post
     path('new_post/', new_post, name='new_post'),
+    path('editar_post/<str:id>', editar_post, name='editar_post'),
+    path('deleta_post/<int:id>', deleta_post, name='deleta_post'),
 ]
