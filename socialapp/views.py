@@ -5,7 +5,8 @@ from socialapp.forms import AvaliaForms,PostagemForms,PerfilForms, TelefoneForms
 from socialapp.models import Avalia, Postagem,Perfil, Telefone,Perfil_post
 # Create your views here.
 def index(request):
-    return render(request, 'social/index.html')
+    postagens =Postagem.objects.all()
+    return render(request, 'social/index.html', {'postagens':postagens})
 
 def contato(request):
     return render(request, 'social/contact.html')
