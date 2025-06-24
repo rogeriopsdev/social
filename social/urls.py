@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include, re_path
 from socialapp.views import index, sobre, postar,contato, new_avalia, editar_avalia, deleta_avalia
 from socialapp.views import new_post, deleta_post, editar_post
 urlpatterns = [
@@ -31,4 +31,9 @@ urlpatterns = [
     path('new_post/', new_post, name='new_post'),
     path('editar_post/<str:id>', editar_post, name='editar_post'),
     path('deleta_post/<int:id>', deleta_post, name='deleta_post'),
+
+    path('', include('usuario.urls')),
+
+
+
 ]

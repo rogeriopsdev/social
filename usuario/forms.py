@@ -12,7 +12,7 @@ class UsuarioForm(UserCreationForm):
     username = forms.CharField(label='Matrícula:')
     email = forms.EmailField(label='E-mail:')
     last_name = forms.CharField(label='Nome Completo:')
-    first_name = forms.CharField(
+    first_name = forms.ChoiceField(
         label='Status:',
         choices=FIRST_NAME_CHOICES,
         widget=forms.Select(attrs={'class':'custom-select'}),
